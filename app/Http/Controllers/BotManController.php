@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Conversations\ExampleConversation;
+use App\Conversations\AddItemsConversation;
+use App\Conversations\ShowListConversation;;
 use Illuminate\Http\Request;
 use Mpociot\BotMan\BotMan;
 
@@ -16,11 +18,6 @@ class BotManController extends Controller
     	$botman = app('botman');
         $botman->verifyServices(env('TOKEN_VERIFY'));
 
-        // Simple respond method
-        $botman->hears('Hello', function (BotMan $bot) {
-            $bot->reply('Hi there :)');
-        });
-
         $botman->listen();
     }
 
@@ -32,4 +29,15 @@ class BotManController extends Controller
     {
         $bot->startConversation(new ExampleConversation());
     }
+
+    public function addItemsConversation(Botman $bot)
+    {
+        $bot->startConversation(new AddItemsConversation());
+    }
+
+    public function showListConversation(Botman $bot)
+    {
+        $bot->startConversation(new ShowListConversation()); 
+    }
+
 }
