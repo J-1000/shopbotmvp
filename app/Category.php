@@ -8,6 +8,11 @@ class Category extends Model
 {
     protected $guarded = [];
 
+    public function getRouteByKeyName()
+    {
+    	
+    }
+
     public function items()
     {
     	return $this->hasMany(Item::class);	

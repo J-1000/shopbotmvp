@@ -17,13 +17,15 @@ class AddItemsConversation extends Conversation
         $this->ask($question, function(Answer $answer) {
             $items = explode(' ', $answer->getText());
             foreach ($items as $item) {
+                // define category 
                 Item::create(['name' => $item]);
                 $this->bot->typesAndWaits(2);
                 $this->say('Ich habe ' . $item . ' der Liste hinzugefuegt.');
             }
+
+            
         });
     }
-
 
     public function run()
     {
