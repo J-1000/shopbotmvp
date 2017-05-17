@@ -31,10 +31,20 @@ $factory->define(App\Item::class, function (Faker\Generator $faker) {
         'category_id' => function () {
         	return factory('App\Category')->create()->id;
         },
+        'listing_id' => function () {
+            return factory('App\Listing')->create()->id;
+        }
     ];
 });
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->word,
+    ];
+});
+$factory->define(App\Listing::class, function (Faker\Generator $faker) {
     static $password;
 
     return [

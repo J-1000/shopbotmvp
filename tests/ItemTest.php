@@ -22,4 +22,10 @@ class ItemTest extends TestCase
     {
         $this->assertInstanceOf('App\Category', $this->item->category);
     }
+
+    /** @test */
+    function an_item_belongs_to_a_listing()
+    {
+        $this->assertInstanceOf('App\Listing', $this->item->listing); 
+    }
 }
