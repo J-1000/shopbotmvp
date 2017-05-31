@@ -2,7 +2,7 @@
 
 namespace App\Conversations;
 
-use App\Item;
+use App\Models\Item;
 use Illuminate\Foundation\Inspiring;
 use Mpociot\BotMan\Answer;
 use Mpociot\BotMan\Button;
@@ -29,7 +29,7 @@ class AddItemsConversation extends Conversation
         $this->ask($question, function(Answer $answer) {
             $items = explode(',', $answer->getText());
             
-        }
+        });
     }
 
     public function run()

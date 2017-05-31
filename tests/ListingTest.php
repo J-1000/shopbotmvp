@@ -13,7 +13,7 @@ class ListingTest extends TestCase
 	public function setUp()
 		{
 			parent::setUp();
-			$this->listing = factory('App\Listing')->create();
+			$this->listing = factory('App\Models\Listing')->create();
 		}	
 
 	/** @test */
@@ -25,7 +25,7 @@ class ListingTest extends TestCase
 	/** @test */
 	function a_listing_can_add_an_item()
 	{
-		$item = factory('App\Item')->create();
+		$item = factory('App\Models\Item')->create();
 
 		$this->listing->addItem($item);
 

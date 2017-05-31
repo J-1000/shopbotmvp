@@ -12,7 +12,7 @@ class CategoryTest extends TestCase
     /** @test */
     function a_category_has_items()
     {
-    	$category = factory('App\Category')->create();
+    	$category = factory('App\Models\Category')->create();
 
     	$this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $category->items);
     }
@@ -20,7 +20,7 @@ class CategoryTest extends TestCase
     /** @test */
     function a_category_can_add_an_item()
     {
-    	$category = factory('App\Category')->create();
+    	$category = factory('App\Models\Category')->create();
 
     	$category->addItem(['name' => 'foo']);
 

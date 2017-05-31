@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Conversations;
-
 
 class TestConversation
 {
@@ -25,10 +23,4 @@ class TestConversation
             }
         });
     }
-
-
-
-
-
-
 }

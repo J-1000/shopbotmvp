@@ -7,7 +7,7 @@ use Mpociot\BotMan\Button;
 use Mpociot\BotMan\Conversation;
 use Mpociot\BotMan\Question;
 use Mpociot\BotMan\Message;
-use App\Item;
+use App\Models\Item;
 
 class ShowListConversation extends Conversation
 {

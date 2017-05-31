@@ -14,18 +14,18 @@ class ItemTest extends TestCase
     {
         parent::setUp();
 
-        $this->item = factory('App\Item')->create();
+        $this->item = factory('App\Models\Item')->create();
     }
 
     /** @test */
     function an_item_has_a_category()
     {
-        $this->assertInstanceOf('App\Category', $this->item->category);
+        $this->assertInstanceOf('App\Models\Category', $this->item->category);
     }
 
     /** @test */
     function an_item_belongs_to_a_listing()
     {
-        $this->assertInstanceOf('App\Listing', $this->item->listing); 
+        $this->assertInstanceOf('App\Models\Listing', $this->item->listing);
     }
 }

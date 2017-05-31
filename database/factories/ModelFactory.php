@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -23,28 +23,28 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Item::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Item::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
         'name' => $faker->word,
         'category_id' => function () {
-        	return factory('App\Category')->create()->id;
+        	return factory('App\Models\Category')->create()->id;
         },
         'listing_id' => function () {
-            return factory('App\Listing')->create()->id;
+            return factory('App\Models\Listing')->create()->id;
         }
     ];
 });
 
-$factory->define(App\Category::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
         'name' => $faker->word,
     ];
 });
-$factory->define(App\Listing::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Listing::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
