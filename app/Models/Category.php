@@ -8,11 +8,6 @@ class Category extends Model
 {
     protected $guarded = [];
 
-    public function getRouteByKeyName()
-    {
-    	
-    }
-
     public function items()
     {
     	return $this->hasMany(Item::class);	
@@ -23,4 +18,8 @@ class Category extends Model
     	$this->items()->create($item);	
     }
 
+    public function attachItem($item)
+    {
+        $this->items()->save($item);
+    }
 }

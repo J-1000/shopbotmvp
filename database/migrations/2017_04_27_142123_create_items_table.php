@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->nullable();
             $table->integer('listing_id')->nullable();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->timestamps();
         });
     }

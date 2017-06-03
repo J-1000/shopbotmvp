@@ -5,7 +5,7 @@ $botman = resolve('botman');
 
 //$botman->hears('/start', BotmanController::class. '@startIntroductionConversation');
 
-$botman->hears('Start conversation', BotManController::class.'@startConversation');
+$botman->hears('s', BotManController::class.'@startConversation');
 
 $botman->hears('/list', BotManController::class. '@showListConversation');
 
