@@ -30,9 +30,9 @@ class BotManController extends Controller
         $bot->startConversation(new ExampleConversation());
     }
 
-    public function addItemsConversation(Botman $bot)
+    public function addItemsConversation(Botman $bot, $item)
     {
-        $bot->startConversation(new AddItemsConversation());
+        $bot->startConversation(new AddItemsConversation($item));
     }
 
     public function showListConversation(Botman $bot)
