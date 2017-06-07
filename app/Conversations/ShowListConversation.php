@@ -13,18 +13,22 @@ use App\Models\Listing;
 class ShowListConversation extends Conversation
 {
 
-    public function selectListing()
+    public function getListing()
     {
-        $listings = Listing::all();
-        if ($listings->count() == 1) {
+        $listing = Listing::first();
+        // todo: sort items according to different supermarket layouts
+        $items = $listing->items();
+        $this->sortItems();
+        $this->displayList($items);
 
-            // todo: sort items according to different supermarket layouts
-            $items = $listings->items();
-            $this->displayItems($items);
-        }
     }
 
-    protected function displayItems($items)
+    protected function sortItems()
+    {
+        // todo
+    }
+
+    protected function displayList($items)
     {
         $list = 'Hier ist deine Liste:' . "\n\n";
         foreach ($items as $item) {

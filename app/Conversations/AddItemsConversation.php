@@ -30,16 +30,27 @@ class AddItemsConversation extends Conversation
                 $this->say('Ich habe eine neue Liste mit dem Namen ' . $listingName . ' erstellt.');
 
                 if ($item = $this->itemIsAlreadyInDatabase()) {
+
                     $this->attachItemToListing($item);
+
+                    return;
                 };
                 $this->chooseCategory();
+
+                return;
             });
         }
         if ($this->listing->count() == 1) {
+            $this->listing = $this->listing->first();
             if ($item = $this->itemIsAlreadyInDatabase()) {
+
                 $this->attachItemToListing($item);
+
+                return;
             };
             $this->chooseCategory();
+
+            return;
         }
 
         // only to be used for multiple lists
@@ -68,13 +79,13 @@ class AddItemsConversation extends Conversation
             return false;
         }
 
-        return true;
+        return $newEntry;
     }
 
     protected function attachItemToListing($item)
     {
         $this->listing->addItem($item);
-        $this->say($item . ' wurde der Liste hinzugefuegt');
+        $this->say($this->item . ' wurde der Liste hinzugefuegt');
     }
 
     protected function chooseCategory()

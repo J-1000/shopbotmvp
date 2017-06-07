@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
     	$categories = [
-    		'wurst und fleisch', 'backwaren', 'michprodukte', 
+    		'wurst und fleisch', 'backwaren', 'milchprodukte',
     		'kaffe & co', 'obst und gemüse', 'kühlregal',
     		'tiefkühlwaren', 'süßwaren & knabberzeug'
     	];

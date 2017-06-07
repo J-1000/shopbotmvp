@@ -19,7 +19,7 @@ class ItemsTableSeeder extends Seeder
             'backwaren' => [
                 'brot', 'brötchen', 'aufbackbrötchen'
             ],
-            'michprodukte' => [
+            'milchprodukte' => [
                 'appenzeller', 'käse', 'frischkäse', 'babybel', 'quark', 
                 'milch', 'joghurt', 'sahne', 'schlagsahne', 'saure sahne', 
             ],

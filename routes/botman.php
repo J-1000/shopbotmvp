@@ -10,7 +10,7 @@ $botman->hears('s', BotManController::class.'@startConversation');
 
 $botman->hears('/list', BotManController::class. '@showListConversation');
 
-$botman->hears('. {item}', function ($bot, $item) {
+$botman->hears('.{item}', function ($bot, $item) {
     $bot->startConversation(new AddItemsConversation($item));
 });
 
