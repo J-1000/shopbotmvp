@@ -3,14 +3,8 @@
 namespace App\Conversations;
 
 use Illuminate\Support\Facades\DB;
-use Mpociot\BotMan\Answer;
-use Mpociot\BotMan\Button;
 use Mpociot\BotMan\Conversation;
-use Mpociot\BotMan\Question;
-use Mpociot\BotMan\Message;
-use App\Item;
 use App\Listing;
-use App\Category;
 
 class ShowListConversation extends Conversation
 {
@@ -19,12 +13,19 @@ class ShowListConversation extends Conversation
     {
         $listingId = Listing::first()->id;
         $items = DB::table('items')->where('listing_id', $listingId)->get();
-        $this->displayList($items);
+        $sorted = $this->sortItems($items);
+        $this->displayList($sorted);
     }
 
     protected function sortItems($items)
     {
+        $ids = [8, 5, 2];
 
+        $sorted = $items->sortBy(function($model) use ($ids) {
+            return array_search($model->category_id, $ids);
+        });
+
+        return $sorted;
     }
 
     protected function displayList($items)
