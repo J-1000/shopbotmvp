@@ -19,7 +19,8 @@ class ShowListConversation extends Conversation
 
     protected function sortItems($items)
     {
-        $ids = [8, 5, 2];
+        // default layout of the supermarket
+        $ids = [4, 8, 12, 2, 6, 1, 3, 10, 9, 11, 5, 7];
 
         $sorted = $items->sortBy(function($model) use ($ids) {
             return array_search($model->category_id, $ids);
