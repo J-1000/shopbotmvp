@@ -52,6 +52,9 @@ class ItemsTableSeeder extends Seeder
             'haushaltsartikel' => [
                 'spüli', 'spülschwämme', 'klopapier', 'küchenrolle',
                 'zahnpasta', 'waschmittel', 'spülmaschinentabs', 'müllbeutel'
+            ],
+            'getränke' => [
+                'wasser', 'cola', 'orangensaft', 'traubensaft', 'saft', 'apfelsaft'
             ]
         ]; 
 

@@ -16,7 +16,7 @@ class CategoriesTableSeeder extends Seeder
     		'wurst & fleisch', 'backwaren', 'milchprodukte',
     		'kaffe & co', 'obst & gemüse', 'kühlregal',
     		'tiefkühlwaren', 'süßwaren & knabberzeug', 'pasta & co',
-            'konserven', 'haushaltsartikel'
+            'konserven', 'haushaltsartikel', 'getränke'
     	];
     	foreach ($categories as $category) {
     		Category::create([
