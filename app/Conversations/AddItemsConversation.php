@@ -2,9 +2,9 @@
 
 namespace App\Conversations;
 
-use App\Models\Item;
-use App\Models\Listing;
-use App\Models\Category;
+use App\Item;
+use App\Listing;
+use App\Category;
 use Mpociot\BotMan\Answer;
 use Mpociot\BotMan\Button;
 use Mpociot\BotMan\Conversation;

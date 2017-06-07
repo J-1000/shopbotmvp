@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class Listing extends Model
 
     public function items()
     {
-    	return $this->hasMany(Item::class);	
+    	return $this->hasMany(Item::class);
     }
 
     public function addItem($item)

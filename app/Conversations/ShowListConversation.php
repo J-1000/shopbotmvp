@@ -2,30 +2,29 @@
 
 namespace App\Conversations;
 
+use Illuminate\Support\Facades\DB;
 use Mpociot\BotMan\Answer;
 use Mpociot\BotMan\Button;
 use Mpociot\BotMan\Conversation;
 use Mpociot\BotMan\Question;
 use Mpociot\BotMan\Message;
-use App\Models\Item;
-use App\Models\Listing;
+use App\Item;
+use App\Listing;
+use App\Category;
 
 class ShowListConversation extends Conversation
 {
 
     public function getListing()
     {
-        $listing = Listing::first();
-        // todo: sort items according to different supermarket layouts
-        $items = $listing->items();
-        $this->sortItems();
+        $listingId = Listing::first()->id;
+        $items = DB::table('items')->where('listing_id', $listingId)->get();
         $this->displayList($items);
-
     }
 
-    protected function sortItems()
+    protected function sortItems($items)
     {
-        // todo
+
     }
 
     protected function displayList($items)
@@ -40,6 +39,6 @@ class ShowListConversation extends Conversation
 
     public function run()
     {
-       $this->selectListing();
+       $this->getListing();
     }
 }
