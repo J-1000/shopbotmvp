@@ -8,6 +8,11 @@ use App\Listing;
 
 class ShowListConversation extends Conversation
 {
+    protected $emojiHelper;
+
+    public function __construct() {
+        $this->emojiHelper = resolve('App\Common\EmojiHelper');
+    }
 
     public function getListing()
     {
@@ -31,7 +36,7 @@ class ShowListConversation extends Conversation
 
     protected function displayList($items)
     {
-        $list = 'Hier ist deine Liste:' . "\n\n";
+        $list = 'Hier ist deine Liste:' . "\n\n" . $this->emojiHelper->display(['list']);
         foreach ($items as $item) {
             $list .= $item->name . "\n";
         }
