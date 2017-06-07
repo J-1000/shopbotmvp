@@ -13,7 +13,7 @@ class ItemsTableSeeder extends Seeder
     public function run()
     {
     	$models = [
-            'wurst und fleisch' => [
+            'wurst & fleisch' => [
                 'lyoner', 'salami', 'wiener', 'leberwurst'
             ],
             'backwaren' => [
@@ -26,7 +26,7 @@ class ItemsTableSeeder extends Seeder
             'kaffe & co' => [
                 'kaffee', 'tee'
             ],
-            'obst und gemüse' => [
+            'obst & gemüse' => [
                 'tomaten', 'biotomaten', 'blumenkohl', 'äpfel', 'orangen', 
                 'bananen', 'salat', 'birnen', 'brokkoli', 'karotten', 'möhren', 
                 'zwiebeln', 'lauchzwiebeln', 'kartoffeln', 'bohnen', 'gurke', 'salatgurke',
@@ -41,6 +41,17 @@ class ItemsTableSeeder extends Seeder
             ],
             'süßwaren & knabberzeug' => [
                 'chips', 'schokolade', 'schokobons', 'erdnüsse'
+            ],
+            'pasta & co' => [
+                'nudeln', 'spaghetti', 'pesto', 'lasagneblätter'
+            ],
+            'konserven' => [
+                'tomaten', 'saure gurken', 'fisch in der dose',
+                'mais in der dose'
+            ],
+            'haushaltsartikel' => [
+                'spüli', 'spülschwämme', 'klopapier', 'küchenrolle',
+                'zahnpasta', 'waschmittel', 'spülmaschinentabs', 'müllbeutel'
             ]
         ]; 
 

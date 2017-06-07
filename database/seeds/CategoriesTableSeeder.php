@@ -13,9 +13,10 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
     	$categories = [
-    		'wurst und fleisch', 'backwaren', 'milchprodukte',
-    		'kaffe & co', 'obst und gemüse', 'kühlregal',
-    		'tiefkühlwaren', 'süßwaren & knabberzeug'
+    		'wurst & fleisch', 'backwaren', 'milchprodukte',
+    		'kaffe & co', 'obst & gemüse', 'kühlregal',
+    		'tiefkühlwaren', 'süßwaren & knabberzeug', 'pasta & co',
+            'konserven', 'haushaltsartikel'
     	];
     	foreach ($categories as $category) {
     		Category::create([
