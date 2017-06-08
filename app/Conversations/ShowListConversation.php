@@ -36,7 +36,7 @@ class ShowListConversation extends Conversation
 
     protected function displayList($items)
     {
-        $list = 'Hier ist deine Liste:' . "\n\n" . $this->emojiHelper->display(['list']);
+        $list = 'Hier ist deine Liste:' . "\n\n" . $this->emojiHelper->display(['list']) . "\n\n";
         foreach ($items as $item) {
             $list .= $item->name . "\n";
         }

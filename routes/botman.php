@@ -3,6 +3,7 @@ use App\Conversations\AddItemsConversation;
 use App\Conversations\ExampleConversation;
 use App\Http\Controllers\BotManController;
 use App\Listing;
+use App\Item;
 
 $botman = resolve('botman');
 
@@ -20,6 +21,15 @@ $botman->hears("\\+ {item}", function ($bot, $item) {
     $bot->startConversation(new AddItemsConversation($item));
 });
 
+$botman->hears("\\- {item}", function ($bot, $item) {
+
+    $itemModel = Item::where('name', $item)->first();
+    $listing = Listing::first();
+    $itemModel->listing()->dissociate($listing);
+    $itemModel->save();
+    $bot->reply($item . ' wurde von der Liste entfernt.');
+});
+
 $botman->hears('/newlist', BotmanController::class. '@newListingConversation');
 
 $botman->hears('/Liste löschen', function ($bot) {
@@ -27,4 +37,5 @@ $botman->hears('/Liste löschen', function ($bot) {
     $listing->delete();
     $bot->reply('Die Liste wurde gelöscht');
 });
+
 
