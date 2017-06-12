@@ -4,7 +4,7 @@ namespace App\Conversations;
 
 use Illuminate\Support\Facades\DB;
 use Mpociot\BotMan\Conversation;
-use App\Listing;
+use App\Models\Listing;
 
 class ShowListConversation extends Conversation
 {
