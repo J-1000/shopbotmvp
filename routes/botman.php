@@ -10,8 +10,7 @@ $botman = resolve('botman');
 $botman->hears('/start', function ($bot) {
     $bot->reply('Hallo ' .
         $bot->getUser()->getFirstName() .
-        '!! Gib die Artikel mit vorangestelltem \'+\' ein. Um die Liste anzuzeigen, gib das Kommando \'/liste\' ein. 
-        Falls Du Hilfe brauchst -> \'/hilfe\''
+        '!! Gib die Artikel mit vorangestelltem \'+\' ein. Um die Liste anzuzeigen, gib das Kommando \'/liste\' ein. Falls Du Hilfe brauchst -> \'/hilfe\''
     );
 });
 

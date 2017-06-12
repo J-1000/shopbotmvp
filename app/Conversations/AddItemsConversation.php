@@ -98,7 +98,6 @@ class AddItemsConversation extends Conversation
     {
         $categoryNames = [];
         $models = Category::all();
-        // eventually replace with each->pluck->toArray
         foreach ($models as $model) {
             array_push($categoryNames, $model->name);
         }
