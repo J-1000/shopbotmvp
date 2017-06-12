@@ -34,9 +34,7 @@ class AddItemsConversation extends Conversation
                         $listingName,
                         $this->emojiHelper->display(['ok hand', 'list']))
                 );
-
                 if ($item = $this->itemIsAlreadyInDatabase()) {
-
                     $this->attachItemToListing($item);
 
                     return;
@@ -49,7 +47,6 @@ class AddItemsConversation extends Conversation
         if ($this->listing->count() == 1) {
             $this->listing = $this->listing->first();
             if ($item = $this->itemIsAlreadyInDatabase()) {
-
                 $this->attachItemToListing($item);
 
                 return;
@@ -69,7 +66,6 @@ class AddItemsConversation extends Conversation
                 ->addButtons($buttons);
             $this->ask($question, function (Answer $answer) {
                 $this->listing = $answer->getValue();
-
                 if ($item = $this->itemIsAlreadyInDatabase()) {
                     $this->attachItemToListing($item);
                 };
@@ -82,6 +78,7 @@ class AddItemsConversation extends Conversation
     {
         $newEntry = Item::where('name', $this->item)->first();
         if ($newEntry == null) {
+
             return false;
         }
 

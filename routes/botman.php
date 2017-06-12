@@ -10,8 +10,8 @@ $botman = resolve('botman');
 $botman->hears('/start', function ($bot) {
     $bot->reply('Hallo ' .
         $bot->getUser()->getFirstName() .
-        '!! Gib die Artikel mit vorangestelltem + ein. Um die Liste anzuzeigen, gib das Kommando /liste ein. 
-        Falls Du Hilfe brauchst -> /hilfe'
+        '!! Gib die Artikel mit vorangestelltem \'+\' ein. Um die Liste anzuzeigen, gib das Kommando \'/liste\' ein. 
+        Falls Du Hilfe brauchst -> \'/hilfe\''
     );
 });
 
@@ -39,11 +39,9 @@ $botman->hears('/liste löschen', function ($bot) {
 
 $botman->hears('/hilfe', function ($bot) {
     $bot->typesAndWaits(1);
-    $bot->reply('Um einen Artikel der Liste hinzuzufügen, gib den Artikel mit vorangestelltem + ein.');
+    $bot->reply('Um einen Artikel der Liste hinzuzufügen, gib den Artikel mit vorangestelltem \'+\' ein.');
     $bot->typesAndWaits(1);
-    $bot->reply('Ein vorangestelltes - entfernt den Artikel von der Liste');
+    $bot->reply('Ein vorangestelltes \'-\' entfernt den Artikel von der Liste');
     $bot->typesAndWaits(1);
-    $bot->reply('Ein vorangestelltes - entfernt den Artikel von der Liste');
-    $bot->typesAndWaits(1);
-    $bot->reply('Gib / ein um eine Liste der Kommandos zu sehen.');
+    $bot->reply('Gib \'/\' ein um eine Liste der Kommandos zu sehen.');
 });

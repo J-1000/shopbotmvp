@@ -16,7 +16,5 @@ class Listing extends Model
     public function addItem($item)
     {
     	$this->items()->save($item);
-
     }
-
 }
