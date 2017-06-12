@@ -7,6 +7,7 @@ class ItemsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+    // eventually replace with each->pluck->toArray
      *
      * @return void
      */
