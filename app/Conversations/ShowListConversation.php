@@ -18,8 +18,8 @@ class ShowListConversation extends Conversation
     {
         $listingId = Listing::first()->id;
         $items = DB::table('items')->where('listing_id', $listingId)->get();
-        $sorted = $this->sortItems($items);
-        $this->displayList($sorted);
+
+        return $items;
     }
 
     protected function sortItems($items)
@@ -45,6 +45,6 @@ class ShowListConversation extends Conversation
 
     public function run()
     {
-       $this->getListing();
+        $this->displayList($this->sortItems($this->getListing()));
     }
 }
