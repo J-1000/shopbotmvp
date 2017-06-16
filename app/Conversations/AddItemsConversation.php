@@ -78,7 +78,7 @@ class AddItemsConversation extends Conversation
     {
         $categoryButtons = $this->createArrayOfButtonsForAllCategories();
         $question = Question::create(sprintf('%s %s konnte  keiner Kategorie zu geordnet werden. Bitte waehle eine Kategorie aus.',
-                $this->emojiHelper->display(['double exclamation mark']),
+                $this->emojiHelper->display(['exclamation mark']),
                 $this->item))
             ->fallback('unable to ask for category if item does not exist')
             ->callbackId('ask_for_category')

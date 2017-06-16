@@ -16,6 +16,7 @@ class EmojiHelper
         'ok hand' => '&#x1F44C;',
         'list' => '&#x1F4DD;',
         'red cross mark' => '&#x274C;',
+        'exclamation mark' => '&#x2757;',
         'double exclamation mark' => '&#x203C;',
     ];
 

@@ -8,13 +8,22 @@ use App\Models\Listing;
 
 class ShowListConversation extends Conversation
 {
+    /**
+     * @var App\Common\EmojiHelper
+     */
     protected $emojiHelper;
 
+    /**
+     * ShowListConversation constructor.
+     */
     public function __construct() {
         $this->emojiHelper = resolve('App\Common\EmojiHelper');
     }
 
-    public function getListing()
+    /**
+     * @return Illuminate\Database\Eloquent\Collection
+     */
+    public function getItems()
     {
         $listingId = Listing::first()->id;
         $items = DB::table('items')->where('listing_id', $listingId)->get();
@@ -22,6 +31,11 @@ class ShowListConversation extends Conversation
         return $items;
     }
 
+    /**
+     * @param Illuminate\Database\Eloquent\Collection $items
+     *
+     * @return Illuminate\Database\Eloquent\Collection
+     */
     protected function sortItems($items)
     {
         $ids = [4, 8, 12, 2, 6, 1, 3, 10, 9, 11, 5, 7];
@@ -33,7 +47,10 @@ class ShowListConversation extends Conversation
         return $sorted;
     }
 
-    protected function displayList($items)
+    /**
+     * @param Illuminate\Database\Eloquent\Collection $items
+     */
+    protected function displayListing($items)
     {
         $list = 'Hier ist deine Liste:' . "\n\n" . $this->emojiHelper->display(['list']) . "\n\n";
         foreach ($items as $item) {
@@ -43,10 +60,13 @@ class ShowListConversation extends Conversation
         $this->say($list);
     }
 
+    /**
+     * Run the conversation
+     */
     public function run()
     {
-        $listing = $this->getListing();
-        $sortedItems = $this->sortItems($listing);
-        $this->displayList($sortedItems);
+        $items = $this->getItems();
+        $sortedItems = $this->sortItems($items);
+        $this->displayListing($sortedItems);
     }
 }
