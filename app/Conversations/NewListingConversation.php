@@ -3,17 +3,11 @@
 namespace App\Conversations;
 
 use Mpociot\BotMan\Answer;
-use Mpociot\BotMan\Button;
 use Mpociot\BotMan\Conversation;
-use Mpociot\BotMan\Question;
 
 class NewListingConversation extends Conversation
 {
-
-    /**
-     * First question
-     */
-    public function askForListingName()
+    public function createNewListing()
     {
         $question = 'Ok' . $this->bot->getUser()->getFirstName() . ', wie soll ich die neue Liste nennen?';
         $this->ask($question, function(Answer $answer) {
@@ -28,6 +22,6 @@ class NewListingConversation extends Conversation
      */
     public function run()
     {
-        $this->askForListingName();
+        $this->createNewListing();
     }
 }

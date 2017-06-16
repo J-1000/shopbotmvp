@@ -12,12 +12,26 @@ use Mpociot\BotMan\Question;
 
 class AddItemsConversation extends Conversation
 {
+    /**
+     * @var
+     */
     protected $listing;
 
+    /**
+     * @var App\Common\EmojiHelper
+     */
     protected $emojiHelper;
 
+    /**
+     * @var string
+     */
     protected $item;
 
+    /**
+     * AddItemsConversation constructor.
+     *
+     * @param string $item
+     */
     public function __construct($item) {
         $this->item = trim($item);
         $this->emojiHelper = resolve('App\Common\EmojiHelper');
@@ -40,7 +54,7 @@ class AddItemsConversation extends Conversation
             $this->ifItemExistsAttachItToListingOtherwiseCreateItFirst();
         });
     }
-    
+
     protected function ifItemExistsAttachItToListingOtherwiseCreateItFirst() {
             if ($item = $this->itemIsAlreadyInDatabase()) {
                 $this->attachItemToListing($item);
@@ -53,6 +67,9 @@ class AddItemsConversation extends Conversation
         
     }
 
+    /**
+     * @return bool | Illuminate\Database\Eloquent\Model
+     */
     protected function itemIsAlreadyInDatabase()
     {
         $newEntry = Item::where('name', $this->item)->first();
@@ -65,6 +82,9 @@ class AddItemsConversation extends Conversation
     }
 
 
+    /**
+     * @param Illuminate\Database\Eloquent\Model $item
+     */
     protected function attachItemToListing($item)
     {
         $this->listing->addItem($item);
@@ -90,6 +110,9 @@ class AddItemsConversation extends Conversation
         });
     }
 
+    /**
+     * @return array
+     */
     protected function createArrayOfButtonsForAllCategories()
     {
         $categoryNames = [];
@@ -105,6 +128,9 @@ class AddItemsConversation extends Conversation
         return $categoryButtons;
     }
 
+    /**
+     * @param string $category
+     */
     protected function saveItem($category)
     {
         $newItem = new Item(['name' => $this->item]);
@@ -122,13 +148,16 @@ class AddItemsConversation extends Conversation
         );
     }
 
+    /**
+     * Start the conversation
+     */
     public function run()
     {
         $this->setListing();
         if ($this->listing->isEmpty()) {
             $this->createNewListing();
         }
-        if ($this->listing->count() == 1) {
+        else {
             $this->listing = $this->listing->first();
             $this->ifItemExistsAttachItToListingOtherwiseCreateItFirst();
         }

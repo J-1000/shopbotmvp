@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Mpociot\BotMan\Conversation;
 use App\Models\Listing;
 
-class ShowListConversation extends Conversation
+class ShowListingConversation extends Conversation
 {
     /**
      * @var App\Common\EmojiHelper
@@ -61,7 +61,7 @@ class ShowListConversation extends Conversation
     }
 
     /**
-     * Run the conversation
+     * Start the conversation
      */
     public function run()
     {

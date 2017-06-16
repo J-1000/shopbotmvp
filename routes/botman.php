@@ -14,7 +14,7 @@ $botman->hears('/start', function ($bot) {
     );
 });
 
-$botman->hears('/liste', BotManController::class. '@showListConversation');
+$botman->hears('/liste', BotManController::class. '@showListingConversation');
 
 $botman->hears("\\+ {item}", function ($bot, $item) {
     $bot->startConversation(new AddItemsConversation($item));
