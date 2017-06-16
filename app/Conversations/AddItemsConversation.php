@@ -37,11 +37,11 @@ class AddItemsConversation extends Conversation
                     $listingName,
                     $this->emojiHelper->display(['ok hand', 'list']))
             );
-            $this->ifItemExistsAttachItToListOtherwiseCreateItFirst();
+            $this->ifItemExistsAttachItToListingOtherwiseCreateItFirst();
         });
     }
     
-    protected function ifItemExistsAttachItToListOtherwiseCreateItFirst() {
+    protected function ifItemExistsAttachItToListingOtherwiseCreateItFirst() {
             if ($item = $this->itemIsAlreadyInDatabase()) {
                 $this->attachItemToListing($item);
 
@@ -130,7 +130,7 @@ class AddItemsConversation extends Conversation
         }
         if ($this->listing->count() == 1) {
             $this->listing = $this->listing->first();
-            $this->ifItemExistsAttachItToListOtherwiseCreateItFirst();
+            $this->ifItemExistsAttachItToListingOtherwiseCreateItFirst();
         }
     }
 }
