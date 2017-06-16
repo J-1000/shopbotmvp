@@ -45,7 +45,6 @@ class ShowListConversation extends Conversation
 
     public function run()
     {
-        //$this->displayList($this->sortItems($this->getListing()));
         $listing = $this->getListing();
         $sortedItems = $this->sortItems($listing);
         $this->displayList($sortedItems);
